@@ -58,3 +58,85 @@ SELECT fiscal_year,
        ROUND(AVG(power_deficit_cr),2)
 FROM power_infra
 GROUP BY fiscal_year;
+
+## 📊 Summary of Analysis
+
+### 🔍 Trend Insights
+- Revealed spikes in power deficit during **2006–08** and **2011–12**.
+- Significant improvements post-2013 due to policy changes and grid integration.
+
+---
+
+### ⚡ 2. Installed Capacity Growth
+- Used **CTEs** to compute installed capacity growth from first recorded year to 2020.
+- **Top contributors**: Gujarat, Maharashtra, Karnataka — due to industrial demand and renewable investments.
+
+---
+
+### 🧮 3. Efficiency Verdicts
+States were classified based on the balance between installed capacity growth and power availability growth:
+
+- 🟢 **Efficient**: Availability kept up with capacity expansion.
+- 🟡 **Moderate**: Moderate alignment between availability and capacity.
+- 🔴 **Inefficient**: High capacity growth with relatively low availability growth.
+
+---
+
+### 📈 4. Power Index Computation
+Power Index was calculated using weighted growth scores:
+
+| Metric                  | Weight |
+|------------------------|--------|
+| Installed Capacity      | 30%    |
+| Power Availability      | 30%    |
+| Per Capita Availability | 40%    |
+
+**Steps:**
+1. Calculated % growth of each metric.
+2. Applied **min-max normalization** to scale between 0 and 1.
+3. Used weighted average to compute **Power Index**.
+
+**Time Periods Compared:**
+- Till 2014
+- 2014–2020
+
+---
+
+### 🌐 5. Regional Trends
+- **South and Northeast** regions showed the **strongest growth post-2014**.
+  
+  ✅ **South**: Led by **Tamil Nadu** and **Karnataka** via renewables (wind, solar), and central support (UDAY, One Nation One Grid).
+
+  ✅ **Northeast**: Benefited from **DDUGJY** and **NERPSIP** schemes improving transmission and rural electrification.
+
+---
+
+## 🔑 Key Insights
+
+- ⚡ **Bihar** showed the **highest increase** in power availability (~425%).
+- ☀️ **Karnataka** & **Tamil Nadu** emerged as solar and wind leaders.
+- 🏝️ **Andaman & Nicobar** had a massive jump in index due to focused electrification drives.
+- 🏙️ **Delhi** and **Gujarat** experienced **index declines post-2014**, possibly due to early saturation.
+
+---
+
+## 🛠️ Tools Used
+- **SQL (MySQL Workbench)** — Complex queries, CTEs, growth calculations
+- **Power BI** — Interactive visualizations and dashboards
+- **Google Slides** — Final presentation deck
+
+---
+
+## 👤 Author
+
+**Somay Agarwal**  
+_Data Enthusiast | Problem Solver | Aspiring Consultant_
+
+---
+
+## 📎 Notes
+
+- **Per capita metrics** use **2011 Census** population data.
+- **Telangana** bifurcation (June 2014) was accounted for in data and analysis.
+
+
